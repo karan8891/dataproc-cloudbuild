@@ -5,7 +5,7 @@ steps:
 - name: 'gcloud'
   args: ['dataproc', 'workflow-templates', 'import', 'workflow/workflow.yaml']
   secretEnvVars:
-    - CLOUD_BUILD_SERVICE_ACCOUNT
+    - 973154633951-compute@developer.gserviceaccount.com
 
 # Define triggers (e.g., on push to main branch)
 triggers:
