@@ -1,0 +1,23 @@
+jobs:
+- hadoopJob:
+    args:
+    - teragen
+    - '1000'
+    - hdfs:///gen/
+    mainJarFileUri: file:///usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar
+  stepId: teragen
+- hadoopJob:
+    args:
+    - terasort
+    - hdfs:///gen/
+    - hdfs:///sort/
+    mainJarFileUri: file:///usr/lib/hadoop-mapreduce/hadoop-mapreduce-examples.jar
+  stepId: terasort
+  prerequisiteStepIds:
+    - teragen
+placement:
+  managedCluster:
+    clusterName: my-managed-cluster
+    config:
+      gceClusterConfig:
+        zoneUri: us-central1-a
