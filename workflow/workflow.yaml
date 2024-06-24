@@ -17,7 +17,7 @@ jobs:
     - teragen
 placement:
   managedCluster:
-    clusterName: my-managed-cluster
+    clusterName: dataproc-bq
     config:
       gceClusterConfig:
-        zoneUri: us-central1-a
+        zoneUri: us-south2-a
