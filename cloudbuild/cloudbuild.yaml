@@ -1,0 +1,19 @@
+# Define the build steps
+steps:
+- name: 'gcr.io/cloud-builders/git'
+  args: ['clone', '--single-branch', '--depth=1', 'https://github.com/karan8891/dataproc-cloudbuild.git', '<source-directory>']
+- name: 'gcloud'
+  args: ['dataproc', 'workflow-templates', 'import', '<source-directory>/<your-template-file>.yaml']
+  secretEnvVars:
+    - CLOUD_BUILD_SERVICE_ACCOUNT
+
+# Define triggers (e.g., on push to main branch)
+triggers:
+- github:
+    branch: main
+
+# Substitute placeholders with your details
+# - <your-username>: Your GitHub username
+# - <your-repo>: Your GitHub repository name
+# - <source-directory>: Directory in the workspace to clone the repo (e.g., 'src')
+# - <your-template-file>.yaml: The name of your workflow template file
