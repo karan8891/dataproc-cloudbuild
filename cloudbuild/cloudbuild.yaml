@@ -3,7 +3,7 @@ steps:
 - name: 'gcr.io/cloud-builders/git'
   args: ['clone', '--single-branch', '--depth=1', 'https://github.com/karan8891/dataproc-cloudbuild.git', 'cloudbuild']
 - name: 'gcloud'
-  args: ['dataproc', 'workflow-templates', 'import', 'cloudbuild/cloudbuild.yaml']
+  args: ['dataproc', 'workflow-templates', 'import', 'workflow/workflow.yaml']
   secretEnvVars:
     - CLOUD_BUILD_SERVICE_ACCOUNT
 
