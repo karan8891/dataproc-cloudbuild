@@ -4,8 +4,8 @@ steps:
   args: ['clone', '--single-branch', '--depth=1', 'https://github.com/karan8891/dataproc-cloudbuild.git', 'cloudbuild']
 - name: 'gcloud'
   args: ['dataproc', 'workflow-templates', 'import', 'workflow/workflow.yaml']
-  # secretEnvVars:
-  #   - 973154633951-compute@developer.gserviceaccount.com
+  secretEnv:
+    - 'MY_SECRET'
 
 # Define triggers (e.g., on push to main branch)
 triggers:
